@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mod id="9a333aa5-ea62-4de4-ad3b-71d64d433cec">
+  <Properties>
+    <Name>PowerStart</Name>
+    <Description>Strong bonus on the beginning of game</Description>
+    <Authors>Pangzi</Authors>
+    <CompatibleVersions>1.2,2.0</CompatibleVersions>
+    <EnabledByDefault>1</EnabledByDefault>
+    <EnabledAtStartUp>1</EnabledAtStartUp>
+    <AffectsSavedGames>0</AffectsSavedGames>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>0</SupportsMultiplayer>
+    <SupportsHotSeat>0</SupportsHotSeat>
+  </Properties>
+  <Files>
+    <File>cityunit.lua</File>
+    <File>startunit.lua</File>
+  </Files>
+  <InGameActions>
+    <GameplayScripts id="LoadLua">
+      <File>cityunit.lua</File>  
+      <File>startunit.lua</File>  
+    </GameplayScripts>
+  </InGameActions>
+</Mod> 

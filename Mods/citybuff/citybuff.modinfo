@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mod id="bfc08053-0ede-4bcc-9e22-1367acb4e6ed">
+  <Properties>
+    <Name>CityBuff</Name>
+    <Description>Give cities extra yields</Description>
+    <Authors>Pangzi</Authors>
+    <CompatibleVersions>1.2,2.0</CompatibleVersions>
+    <EnabledByDefault>1</EnabledByDefault>
+    <EnabledAtStartUp>1</EnabledAtStartUp>
+    <AffectsSavedGames>0</AffectsSavedGames>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>0</SupportsMultiplayer>
+    <SupportsHotSeat>0</SupportsHotSeat>
+  </Properties>
+  <Files>
+    <File>citybuff.sql</File>
+  </Files>
+  <InGameActions>
+    <UpdateDatabase id="UpdateDatabase">
+      <File>citybuff.sql</File>
+    </UpdateDatabase>
+  </InGameActions>
+</Mod> 
