@@ -20,10 +20,10 @@ function GrantStartingUnitsAndResources(playerID)
             CreateUnits("UNIT_SETTLER", 6)
             
             -- Add modern armors
-            CreateUnits("UNIT_MODERN_ARMOR", 6)
+            CreateUnits("UNIT_MODERN_ARMOR", 1)
             
             -- Add helicopters
-            CreateUnits("UNIT_HELICOPTER", 8)
+            CreateUnits("UNIT_HELICOPTER", 6)
         end
     end
 end
