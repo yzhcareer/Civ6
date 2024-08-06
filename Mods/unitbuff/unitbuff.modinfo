@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Mod id="2d2832ba-2ed0-4c26-b7dd-d6490cadffe6">
   <Properties>
-    <Name>UnitBuff</Name>
+    <Name>AddUnitBuff</Name>
     <Description>Give units extra power</Description>
     <Authors>Pangzi</Authors>
     <CompatibleVersions>1.2,2.0</CompatibleVersions>
     <EnabledByDefault>1</EnabledByDefault>
     <EnabledAtStartUp>1</EnabledAtStartUp>
-    <AffectsSavedGames>0</AffectsSavedGames>
+    <AffectsSavedGames>1</AffectsSavedGames>
     <SupportsSinglePlayer>1</SupportsSinglePlayer>
     <SupportsMultiplayer>0</SupportsMultiplayer>
     <SupportsHotSeat>0</SupportsHotSeat>

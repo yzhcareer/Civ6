@@ -12,18 +12,20 @@ function GrantStartingUnitsAndResources(playerID)
             -- Function to create units
             local function CreateUnits(unitType, count)
                 for i = 1, count do
-                    UnitManager.InitUnit(playerID, unitType, startingPlot:GetX(), startingPlot:GetY())
+                    pUnit = UnitManager.InitUnit(playerID, unitType, startingPlot:GetX(), startingPlot:GetY())
+                    UnitManager.RestoreMovementToFormation(pUnit)
+                    --pUnit:JumpToNearestValidPlot()
                 end
             end
-            
-            -- Add settlers
-            CreateUnits("UNIT_SETTLER", 6)
             
             -- Add modern armors
             CreateUnits("UNIT_MODERN_ARMOR", 1)
             
             -- Add helicopters
-            CreateUnits("UNIT_HELICOPTER", 6)
+            CreateUnits("UNIT_HELICOPTER", 10)
+
+            -- Add settlers
+            CreateUnits("UNIT_SETTLER", 6)
         end
     end
 end
