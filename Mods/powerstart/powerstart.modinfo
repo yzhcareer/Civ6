@@ -15,8 +15,12 @@
   <Files>
     <File>cityunit.lua</File>
     <File>startunit.lua</File>
+    <File>goody.sql</File>
   </Files>
   <InGameActions>
+    <UpdateDatabase id="UpdateDatabase">
+      <File>goody.sql</File>
+    </UpdateDatabase>
     <GameplayScripts id="LoadLua">
       <File>cityunit.lua</File>  
       <File>startunit.lua</File>  
