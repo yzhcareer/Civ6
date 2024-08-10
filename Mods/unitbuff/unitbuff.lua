@@ -9,4 +9,3 @@ end
 
 -- Add the event listener for unit promotions
 Events.UnitPromoted.Add(OnUnitPromoted)
---Events.UnitExperienceChanged.Add(OnUnitPromoted)

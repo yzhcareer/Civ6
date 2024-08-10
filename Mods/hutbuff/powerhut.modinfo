@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Mod id="9a333aa5-ea62-4de4-ad3b-71d64d433cec">
+<Mod id="606cde57-203d-4a80-a457-7cabc6c5f65b">
   <Properties>
-    <Name>PowerStart</Name>
-    <Description>Strong bonus on the beginning of game</Description>
+    <Name>PowerHuts</Name>
+    <Description>Strong bonus from the goody hut</Description>
     <Authors>Pangzi</Authors>
     <CompatibleVersions>1.2,2.0</CompatibleVersions>
     <EnabledByDefault>1</EnabledByDefault>
@@ -13,13 +13,17 @@
     <SupportsHotSeat>0</SupportsHotSeat>
   </Properties>
   <Files>
-    <File>cityunit.lua</File>  
-    <File>startunit.lua</File>
+    <File>goodyweights.sql</File>
+    <File>newgoody.sql</File>
+    <File>newgoodytext.xml</File>
   </Files>
   <InGameActions>
-    <GameplayScripts id="LoadLua">
-      <File>cityunit.lua</File>  
-      <File>startunit.lua</File>  
-    </GameplayScripts>
+    <UpdateDatabase id="UpdateDatabase">
+      <File>goodyweights.sql</File>
+      <File>newgoody.sql</File>
+    </UpdateDatabase>
+    <UpdateText id="UpdateLocalizedText">
+        <File>newgoodytext.xml</File>
+    </UpdateText>
   </InGameActions>
 </Mod> 

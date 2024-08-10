@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameData>
+<LocalizedText>
+    <Replace Tag="LOC_GOODY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
+        <Text> [COLOR_FLOAT_MILITARY] You are granted one free heavy cavalry unit [ENDCOLOR] </Text>
+    </Replace>
+     <Replace Tag="LOC_GOODY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" Language="en_US">
+        <Text> [COLOR_FLOAT_MILITARY] You are granted one free light cavalry unit [ENDCOLOR] </Text>
+    </Replace>
+    <Replace Tag="LOC_GOODY_GRANT_SIEGE_UNIT_DESCRIPTION" Language="en_US">
+        <Text> [COLOR_FLOAT_MILITARY] You are granted one free siege unit [ENDCOLOR] </Text>
+    </Replace>
+
+    <Replace Tag="LOC_GOODY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION" Language="zh_Hans_CN">
+        <Text> [COLOR_FLOAT_MILITARY] 您获得一名重骑兵 [ENDCOLOR] </Text>
+    </Replace>
+     <Replace Tag="LOC_GOODY_GRANT_LIGHT_CAVALRY_UNIT_DESCRIPTION" Language="zh_Hans_CN">
+        <Text> [COLOR_FLOAT_MILITARY] 您获得一名轻骑兵 [ENDCOLOR] </Text>
+    </Replace>
+        <Replace Tag="LOC_GOODY_GRANT_SIEGE_UNIT_DESCRIPTION" Language="zh_Hans_CN">
+        <Text> [COLOR_FLOAT_MILITARY] 您获得一台攻城器械 [ENDCOLOR] </Text>
+    </Replace>
+</LocalizedText>
+</GameData>
