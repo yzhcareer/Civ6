@@ -10,6 +10,9 @@
     <Replace Tag="LOC_GOODY_GRANT_SIEGE_UNIT_DESCRIPTION" Language="en_US">
         <Text> [COLOR_FLOAT_MILITARY] You are granted one free siege unit [ENDCOLOR] </Text>
     </Replace>
+    <Replace Tag="LOC_GOODY_NULL_DESCRIPTION" Language="en_US">
+        <Text> [COLOR_FLOAT_MILITARY] This village is deserted [ENDCOLOR] </Text>
+    </Replace>
 
     <Replace Tag="LOC_GOODY_GRANT_HEAVY_CAVALRY_UNIT_DESCRIPTION" Language="zh_Hans_CN">
         <Text> [COLOR_FLOAT_MILITARY] 您获得一名重骑兵 [ENDCOLOR] </Text>
@@ -19,6 +22,9 @@
     </Replace>
         <Replace Tag="LOC_GOODY_GRANT_SIEGE_UNIT_DESCRIPTION" Language="zh_Hans_CN">
         <Text> [COLOR_FLOAT_MILITARY] 您获得一台攻城器械 [ENDCOLOR] </Text>
+    </Replace>
+    <Replace Tag="LOC_GOODY_NULL_DESCRIPTION" Language="zh_Hans_CN">
+        <Text> [COLOR_FLOAT_MILITARY] 这个村落已经荒废了 [ENDCOLOR] </Text>
     </Replace>
 </LocalizedText>
 </GameData>
