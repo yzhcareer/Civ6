@@ -1,4 +1,4 @@
-UPDATE Improvements SET TilesPerGoody = 7 WHERE ImprovementType = 'IMPROVEMENT_GOODY_HUT';
+UPDATE Improvements SET TilesPerGoody = 5 WHERE ImprovementType = 'IMPROVEMENT_GOODY_HUT';
 UPDATE Improvements SET GoodyRange = 1 WHERE ImprovementType = 'IMPROVEMENT_GOODY_HUT';
 UPDATE Improvements SET DispersalGold = 1000 WHERE ImprovementType = 'IMPROVEMENT_BARBARIAN_CAMP';
 UPDATE Improvements SET Goody = 1 WHERE ImprovementType = 'IMPROVEMENT_BARBARIAN_CAMP';

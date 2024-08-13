@@ -1,11 +1,47 @@
--- Function to grant a Modern Armor unit when a new city is founded
 function OnCityFounded(playerID, cityID)
-
     local player = Players[playerID]
 
     local function CreateUnits(unitType, plot)
         local pUnit = UnitManager.InitUnit(playerID, unitType, plot:GetX(), plot:GetY())
         UnitManager.RestoreMovementToFormation(pUnit)
+        --pUnit = PromotUnit(pUnit, unitType)
+        return pUnit
+    end
+
+    local function findWaterPlot(plot)
+        for direction = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1, 1 do
+            local adjacentPlot = Map.GetAdjacentPlot(plot:GetX(), plot:GetY(), direction)
+            if adjacentPlot ~= nil and adjacentPlot:IsWater() then
+                return adjacentPlot
+            end
+        end
+        return nil
+    end
+
+    local function findWaterPlotRadius(plot, radius)
+        local currentPlots = {}
+        currentPlots[plot] = 1
+        for r = 1, radius, 1 do
+            local resultPlots = {}
+            for p, i in pairs(currentPlots) do
+                for direction = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1, 1 do
+                    local adjacentPlot = Map.GetAdjacentPlot(p:GetX(), p:GetY(), direction)
+                    if adjacentPlot ~= nil then
+                        if adjacentPlot:IsWater() then
+                            return adjacentPlot
+                        else
+                            resultPlots[adjacentPlot] = 1
+                        end
+                    end
+                end
+            end
+            currentPlots = resultPlots
+        end
+        return nil
+    end
+
+    local function PromotUnit(pUnit)
+        local unitType = pUnit:GetType()
         local unitPromotionClass = GameInfo.Units[unitType].PromotionClass
         for prom in GameInfo.UnitPromotions() do
             if prom.PromotionClass == unitPromotionClass then
@@ -15,27 +51,23 @@ function OnCityFounded(playerID, cityID)
         return pUnit
     end
 
-
     if player:IsHuman() then
         local city = CityManager.GetCity(playerID, cityID)
         local units = {"UNIT_MODERN_ARMOR", "UNIT_JET_FIGHTER", "UNIT_MOBILE_SAM", "UNIT_SPY"}
         for i, unit in ipairs(units) do
             CreateUnits(unit, city)
         end
-        
-        for direction = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1, 1 do
-            local adjacentPlot = Map.GetAdjacentPlot(city:GetX(), city:GetY(), direction)
-            -- Check if the adjacent plot is a water tile (ocean or sea)
-            if adjacentPlot ~= nil and adjacentPlot:IsWater() then
-                CreateUnits("UNIT_NUCLEAR_SUBMARINE", adjacentPlot)
-                local carrier = CreateUnits("UNIT_AIRCRAFT_CARRIER", adjacentPlot)
-                local planes = {"UNIT_JET_FIGHTER", "UNIT_JET_FIGHTER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER"}
-                for i, plane in ipairs(planes) do
-                    CreateUnits(plane, city)
-                end
-                break
+
+        adjacentPlot = findWaterPlotRadius(city, 3)
+        if adjacentPlot ~= nil then
+            CreateUnits("UNIT_NUCLEAR_SUBMARINE", adjacentPlot)
+            local carrier = CreateUnits("UNIT_AIRCRAFT_CARRIER", adjacentPlot)
+            local planes = {"UNIT_JET_FIGHTER", "UNIT_JET_FIGHTER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER"}
+            for i, plane in ipairs(planes) do
+                local p = CreateUnits(plane, city)
             end
         end
+        
     end
 end
 
