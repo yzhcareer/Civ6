@@ -14,7 +14,7 @@ function Promote(playerID, unitID)
         local unitType = pUnit:GetType()
         local unitPromotionClass = GameInfo.Units[unitType].PromotionClass
         for prom in GameInfo.UnitPromotions() do
-            if prom.PromotionClass == unitPromotionClass then
+            if prom.PromotionClass == unitPromotionClass and not pUnit:GetExperience():HasPromotion(prom.Index) then
                 pUnit:GetExperience():SetPromotion(prom.Index)
             end
         end

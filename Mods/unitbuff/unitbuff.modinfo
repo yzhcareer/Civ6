@@ -14,11 +14,13 @@
   </Properties>
   <Files>
     <File>unitbuff.sql</File>
+    <!--<File>unitability.sql</File>-->
     <File>unitbuff.lua</File>
   </Files>
   <InGameActions>
     <UpdateDatabase id="UpdateDatabase">
       <File>unitbuff.sql</File>
+      <!--<File>unitability.sql</File>-->
     </UpdateDatabase>
     <GameplayScripts id="LoadLua">
       <File>unitbuff.lua</File>  

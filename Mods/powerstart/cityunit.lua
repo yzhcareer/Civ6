@@ -11,7 +11,7 @@ function OnCityFounded(playerID, cityID)
     local function findWaterPlot(plot)
         for direction = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1, 1 do
             local adjacentPlot = Map.GetAdjacentPlot(plot:GetX(), plot:GetY(), direction)
-            if adjacentPlot ~= nil and adjacentPlot:IsWater() then
+            if adjacentPlot ~= nil and adjacentPlot:IsWater() and adjacentPlot:GetUnitCount() == 0 then
                 return adjacentPlot
             end
         end
@@ -19,26 +19,28 @@ function OnCityFounded(playerID, cityID)
     end
 
     local function findWaterPlotRadius(plot, radius)
+        local resultPlots = {}
         local currentPlots = {}
         currentPlots[plot] = 1
         for r = 1, radius, 1 do
-            local resultPlots = {}
+            local nextPlots = {}
             for p, i in pairs(currentPlots) do
                 for direction = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1, 1 do
                     local adjacentPlot = Map.GetAdjacentPlot(p:GetX(), p:GetY(), direction)
                     if adjacentPlot ~= nil then
-                        if adjacentPlot:IsWater() then
-                            return adjacentPlot
-                        else
+                        if adjacentPlot:IsWater() and adjacentPlot:GetUnitCount() == 0  then
                             resultPlots[adjacentPlot] = 1
+                        else
+                            nextPlots[adjacentPlot] = 1
                         end
                     end
                 end
             end
-            currentPlots = resultPlots
+            currentPlots = nextPlots
         end
-        return nil
+        return resultPlots
     end
+
 
     local function PromotUnit(pUnit)
         local unitType = pUnit:GetType()
@@ -50,24 +52,35 @@ function OnCityFounded(playerID, cityID)
         end
         return pUnit
     end
+    
 
     if player:IsHuman() then
         local city = CityManager.GetCity(playerID, cityID)
-        local units = {"UNIT_MODERN_ARMOR", "UNIT_JET_FIGHTER", "UNIT_MOBILE_SAM", "UNIT_SPY"}
+        local units = {"UNIT_MODERN_ARMOR", "UNIT_JET_FIGHTER", "UNIT_MOBILE_SAM", "UNIT_SPY", "UNIT_HELICOPTER"}
         for i, unit in ipairs(units) do
             CreateUnits(unit, city)
         end
 
-        adjacentPlot = findWaterPlotRadius(city, 3)
-        if adjacentPlot ~= nil then
-            CreateUnits("UNIT_NUCLEAR_SUBMARINE", adjacentPlot)
-            local carrier = CreateUnits("UNIT_AIRCRAFT_CARRIER", adjacentPlot)
-            local planes = {"UNIT_JET_FIGHTER", "UNIT_JET_FIGHTER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER"}
-            for i, plane in ipairs(planes) do
-                local p = CreateUnits(plane, city)
+        adjacentWaterPlots = findWaterPlotRadius(city, 3)
+        local count = 0
+        for plot, num in pairs(adjacentWaterPlots) do 
+            count = count + 1
+            if count == 1 then
+                local carrier = CreateUnits("UNIT_AIRCRAFT_CARRIER", plot)
+                local planes = {"UNIT_JET_FIGHTER", "UNIT_JET_FIGHTER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER"}
+                for i, plane in ipairs(planes) do
+                    local p = CreateUnits(plane, city)
+                end
+                local nextWaterPlot = findWaterPlot(plot)
+                if nextWaterPlot ~= nil then
+                    CreateUnits("UNIT_NUCLEAR_SUBMARINE", nextWaterPlot)
+                    break
+                end
             end
-        end
-        
+            if count == 2 then
+                CreateUnits("UNIT_NUCLEAR_SUBMARINE", plot)
+            end
+        end       
     end
 end
 
