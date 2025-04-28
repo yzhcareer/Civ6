@@ -2,7 +2,7 @@
 <Mod id="9a333aa5-ea62-4de4-ad3b-71d64d433cec">
   <Properties>
     <Name>PowerStart</Name>
-    <Description>Strong bonus on the beginning of game</Description>
+    <Description>Strong bonus on the beginning of game, more starting units, and bonus units for new cities</Description>
     <Authors>Pangzi</Authors>
     <CompatibleVersions>1.2,2.0</CompatibleVersions>
     <EnabledByDefault>1</EnabledByDefault>

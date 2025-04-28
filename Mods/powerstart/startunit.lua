@@ -22,7 +22,7 @@ function GrantStartingUnitsAndResources(playerID)
             CreateUnits("UNIT_HELICOPTER", 6)
 
             -- Add settlers
-            CreateUnits("UNIT_SETTLER", 6)
+            --CreateUnits("UNIT_SETTLER", 6)
         end
     end
 end

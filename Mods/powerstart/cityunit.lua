@@ -52,11 +52,28 @@ function OnCityFounded(playerID, cityID)
         end
         return pUnit
     end
-    
 
+
+    local function RestUnits(plot)
+        local plots = {plot}
+        for direction = 0, DirectionTypes.NUM_DIRECTION_TYPES - 1, 1 do
+            table.insert(plots, Map.GetAdjacentPlot(plot:GetX(), plot:GetY(), direction))
+        end
+        for i, p in pairs(plots) do
+            local units = Units.GetUnitsInPlot(p)
+            for i, unit in ipairs(units) do
+                UnitManager.RestoreMovementToFormation(unit)
+            end
+        end
+    end
+    
+    
     if player:IsHuman() then
         local city = CityManager.GetCity(playerID, cityID)
-        local units = {"UNIT_MODERN_ARMOR", "UNIT_JET_FIGHTER", "UNIT_MOBILE_SAM", "UNIT_SPY", "UNIT_HELICOPTER"}
+        local units = {"UNIT_HELICOPTER", "UNIT_SPY", "UNIT_JET_BOMBER", "UNIT_SETTLER"}
+        --local units = {"UNIT_MODERN_ARMOR", "UNIT_JET_FIGHTER", "UNIT_MOBILE_SAM", "UNIT_SPY", "UNIT_HELICOPTER"}
+        RestUnits(city:GetPlot())
+
         for i, unit in ipairs(units) do
             CreateUnits(unit, city)
         end
@@ -66,6 +83,9 @@ function OnCityFounded(playerID, cityID)
         for plot, num in pairs(adjacentWaterPlots) do 
             count = count + 1
             if count == 1 then
+                CreateUnits("UNIT_MISSILE_CRUISER", plot)
+            end
+                --[[
                 local carrier = CreateUnits("UNIT_AIRCRAFT_CARRIER", plot)
                 local planes = {"UNIT_JET_FIGHTER", "UNIT_JET_FIGHTER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER"}
                 for i, plane in ipairs(planes) do
@@ -80,7 +100,8 @@ function OnCityFounded(playerID, cityID)
             if count == 2 then
                 CreateUnits("UNIT_NUCLEAR_SUBMARINE", plot)
             end
-        end       
+            ]]--
+        end  
     end
 end
 

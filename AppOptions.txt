@@ -6,10 +6,10 @@ Version 15
 SteamLanguage english
 
 ;The language to use for all text in-game.
-DisplayLanguage zh_Hans_CN
+DisplayLanguage en_US
 
 ;The language to use for all audio in-game.
-AudioLanguage Chinese(Taiwan)
+AudioLanguage English(US)
 
 ;Set to 1 to enable subtitles.
 EnableSubtitles 1
