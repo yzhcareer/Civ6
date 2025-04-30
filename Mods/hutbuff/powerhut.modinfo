@@ -13,8 +13,8 @@
     <SupportsHotSeat>0</SupportsHotSeat>
   </Properties>
   <Files>
-    <File>goodyweights.sql</File>
     <File>newgoody.sql</File>
+    <File>goodyweights.sql</File>
     <File>newgoodytext.xml</File>
   </Files>
   <InGameActions>

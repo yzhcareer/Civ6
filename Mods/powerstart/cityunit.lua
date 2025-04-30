@@ -83,7 +83,7 @@ function OnCityFounded(playerID, cityID)
         for plot, num in pairs(adjacentWaterPlots) do 
             count = count + 1
             if count == 1 then
-                CreateUnits("UNIT_MISSILE_CRUISER", plot)
+                CreateUnits("UNIT_NUCLEAR_SUBMARINE", plot)
             end
                 --[[
                 local carrier = CreateUnits("UNIT_AIRCRAFT_CARRIER", plot)
