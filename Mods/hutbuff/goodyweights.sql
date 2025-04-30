@@ -11,12 +11,12 @@ UPDATE GlobalParameters SET Value = 8 WHERE Name = 'BARBARIAN_CAMP_ODDS_OF_NEW_C
 UPDATE GlobalParameters SET Value = 5 WHERE Name = 'BARBARIAN_NUM_RANDOM_UNIT_CHOICES';
 
 UPDATE GoodyHutSubTypes SET Weight = 40 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_RELIC';
-UPDATE GoodyHutSubTypes SET Weight = 10 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_CIVIC';
+UPDATE GoodyHutSubTypes SET Weight = 10 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_CIVICS';
 UPDATE GoodyHutSubTypes SET Weight = 20 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_CIVIC_BOOSTS';
 UPDATE GoodyHutSubTypes SET Weight = 30 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_CIVIC_BOOST';
 
 UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_RELIC';
-UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_CIVIC';
+UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_CIVICS';
 UPDATE GoodyHutSubTypes SET Turn = 2 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_CIVIC_BOOSTS';
 UPDATE GoodyHutSubTypes SET Turn = 2 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_CIVIC_BOOST';
 
@@ -41,10 +41,12 @@ UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_U
 UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_EXPERIENCE';
 UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_HEAL';
 
-UPDATE GoodyHutSubTypes SET Weight = 10 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_TECH';
+UPDATE GoodyHutSubTypes SET Weight = 5 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_TECHS';
+UPDATE GoodyHutSubTypes SET Weight = 5 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_TECH';
 UPDATE GoodyHutSubTypes SET Weight = 30 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_TECH_BOOSTS';
 UPDATE GoodyHutSubTypes SET Weight = 60 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_TECH_BOOST';
 
+UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_TECHS';
 UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_TECH';
 UPDATE GoodyHutSubTypes SET Turn = 2 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_TECH_BOOSTS';
 UPDATE GoodyHutSubTypes SET Turn = 2 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_TECH_BOOST';
@@ -54,12 +56,12 @@ UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_B
 UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_TRADER';
 UPDATE GoodyHutSubTypes SET Weight = 30 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_SETTLER';
 
-UPDATE GoodyHuts SET Weight = 100 WHERE GoodyHutType = 'GOODYHUT_CULTURE';
-UPDATE GoodyHuts SET Weight = 25  WHERE GoodyHutType = 'GOODYHUT_GOLD';
-UPDATE GoodyHuts SET Weight = 25  WHERE GoodyHutType = 'GOODYHUT_FAITH';
-UPDATE GoodyHuts SET Weight = 25  WHERE GoodyHutType = 'GOODYHUT_MILITARY';
-UPDATE GoodyHuts SET Weight = 100  WHERE GoodyHutType = 'GOODYHUT_SCIENCE';
-UPDATE GoodyHuts SET Weight = 25  WHERE GoodyHutType = 'GOODYHUT_SURVIVORS';
+UPDATE GoodyHuts SET Weight = 20 WHERE GoodyHutType = 'GOODYHUT_CULTURE';
+UPDATE GoodyHuts SET Weight = 10  WHERE GoodyHutType = 'GOODYHUT_GOLD';
+UPDATE GoodyHuts SET Weight = 10  WHERE GoodyHutType = 'GOODYHUT_FAITH';
+UPDATE GoodyHuts SET Weight = 10  WHERE GoodyHutType = 'GOODYHUT_MILITARY';
+UPDATE GoodyHuts SET Weight = 40  WHERE GoodyHutType = 'GOODYHUT_SCIENCE';
+UPDATE GoodyHuts SET Weight = 10  WHERE GoodyHutType = 'GOODYHUT_SURVIVORS';
 
 -- UPDATE Units SET PrereqTech = NULL WHERE UnitType = 'UNIT_HORSEMAN';
 
