@@ -11,9 +11,9 @@ UPDATE GlobalParameters SET Value = 8 WHERE Name = 'BARBARIAN_CAMP_ODDS_OF_NEW_C
 UPDATE GlobalParameters SET Value = 5 WHERE Name = 'BARBARIAN_NUM_RANDOM_UNIT_CHOICES';
 
 UPDATE GoodyHutSubTypes SET Weight = 40 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_RELIC';
-UPDATE GoodyHutSubTypes SET Weight = 10 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_CIVICS';
+UPDATE GoodyHutSubTypes SET Weight = 5 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_CIVICS';
 UPDATE GoodyHutSubTypes SET Weight = 20 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_CIVIC_BOOSTS';
-UPDATE GoodyHutSubTypes SET Weight = 30 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_CIVIC_BOOST';
+UPDATE GoodyHutSubTypes SET Weight = 35 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_CIVIC_BOOST';
 
 UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_RELIC';
 UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_CIVICS';
@@ -24,7 +24,7 @@ UPDATE GoodyHutSubTypes SET Weight = 20 WHERE SubTypeGoodyHut = 'GOODYHUT_LARGE_
 UPDATE GoodyHutSubTypes SET Weight = 30 WHERE SubTypeGoodyHut = 'GOODYHUT_MEDIUM_GOLD';
 UPDATE GoodyHutSubTypes SET Weight = 50 WHERE SubTypeGoodyHut = 'GOODYHUT_SMALL_GOLD';
 
-UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_LARGE_GOLD';
+UPDATE GoodyHutSubTypes SET Turn = 2 WHERE SubTypeGoodyHut = 'GOODYHUT_LARGE_GOLD';
 UPDATE GoodyHutSubTypes SET Turn = 2 WHERE SubTypeGoodyHut = 'GOODYHUT_MEDIUM_GOLD';
 UPDATE GoodyHutSubTypes SET Turn = 2 WHERE SubTypeGoodyHut = 'GOODYHUT_SMALL_GOLD';
 
@@ -56,22 +56,18 @@ UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_B
 UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_TRADER';
 UPDATE GoodyHutSubTypes SET Weight = 30 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_SETTLER';
 
-UPDATE GoodyHuts SET Weight = 20 WHERE GoodyHutType = 'GOODYHUT_CULTURE';
-UPDATE GoodyHuts SET Weight = 10  WHERE GoodyHutType = 'GOODYHUT_GOLD';
-UPDATE GoodyHuts SET Weight = 10  WHERE GoodyHutType = 'GOODYHUT_FAITH';
+UPDATE GoodyHuts SET Weight = 10  WHERE GoodyHutType = 'GOODYHUT_CULTURE';
+UPDATE GoodyHuts SET Weight = 5  WHERE GoodyHutType = 'GOODYHUT_GOLD';
+UPDATE GoodyHuts SET Weight = 5  WHERE GoodyHutType = 'GOODYHUT_FAITH';
 UPDATE GoodyHuts SET Weight = 10  WHERE GoodyHutType = 'GOODYHUT_MILITARY';
-UPDATE GoodyHuts SET Weight = 40  WHERE GoodyHutType = 'GOODYHUT_SCIENCE';
+UPDATE GoodyHuts SET Weight = 60  WHERE GoodyHutType = 'GOODYHUT_SCIENCE';
 UPDATE GoodyHuts SET Weight = 10  WHERE GoodyHutType = 'GOODYHUT_SURVIVORS';
-
--- UPDATE Units SET PrereqTech = NULL WHERE UnitType = 'UNIT_HORSEMAN';
 
 UPDATE ModifierArguments SET Value = 3000 WHERE ModifierId = 'GOODY_GOLD_LARGE_MODIFIER' AND Name = 'Amount';
 UPDATE ModifierArguments SET Value = 2000 WHERE ModifierId = 'GOODY_GOLD_MEDIUM_MODIFIER' AND Name = 'Amount';
 UPDATE ModifierArguments SET Value = 1000 WHERE ModifierId = 'GOODY_GOLD_SMALL_MODIFIER' AND Name = 'Amount';
 UPDATE ModifierArguments SET Value = 1500 WHERE ModifierId = 'GOODY_FAITH_LARGE_MODIFIER' AND Name = 'Amount';
 UPDATE ModifierArguments SET Value = 1000 WHERE ModifierId = 'GOODY_FAITH_MEDIUM_MODIFIER' AND Name = 'Amount';
-UPDATE ModifierArguments SET Value = 500 WHERE ModifierId = 'GOODY_FAITH_SMALL_MODIFIER' AND Name = 'Amount';
---UPDATE ModifierArguments SET Value = 'PROMOTION_CLASS_LIGHT_CAVALRY' WHERE ModifierId = 'GOODY_MILITARY_GRANT_SCOUT' AND Name = 'UnitPromotionClassType';
---UPDATE ModifierArguments SET Value = 'UNIT_SETTLER' WHERE ModifierId = 'GOODY_SURVIVORS_GRANT_BUILDER' AND Name = 'UnitType';
+UPDATE ModifierArguments SET Value = 500  WHERE ModifierId = 'GOODY_FAITH_SMALL_MODIFIER' AND Name = 'Amount';
 
 

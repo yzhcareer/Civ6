@@ -30,7 +30,7 @@ VALUES
 
 INSERT INTO GoodyHutSubTypes (GoodyHut, SubTypeGoodyHut, Weight, ModifierId, MinOneCity, RequiresUnit, Turn)
 VALUES
-    ('GOODYHUT_CULTURE', 'GOODYHUT_TWO_CIVICS', 10, 'BOLSHOI_THEATRE_FREE_CIVICS', 1, 0, 0);
+    ('GOODYHUT_CULTURE', 'GOODYHUT_TWO_CIVICS', 5, 'BOLSHOI_THEATRE_FREE_CIVICS', 1, 0, 0),
     ('GOODYHUT_SCIENCE', 'GOODYHUT_TWO_TECHS', 5, 'OXFORD_UNIVERSITY_FREE_TECHS', 1, 0, 0);
 
 --INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent)
