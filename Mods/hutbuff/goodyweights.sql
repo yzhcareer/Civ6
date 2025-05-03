@@ -51,10 +51,15 @@ UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_TECH'
 UPDATE GoodyHutSubTypes SET Turn = 2 WHERE SubTypeGoodyHut = 'GOODYHUT_TWO_TECH_BOOSTS';
 UPDATE GoodyHutSubTypes SET Turn = 2 WHERE SubTypeGoodyHut = 'GOODYHUT_ONE_TECH_BOOST';
 
-UPDATE GoodyHutSubTypes SET Weight = 70 WHERE SubTypeGoodyHut = 'GOODYHUT_ADD_POP';
-UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_BUILDER';
-UPDATE GoodyHutSubTypes SET Weight = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_TRADER';
-UPDATE GoodyHutSubTypes SET Weight = 30 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_SETTLER';
+UPDATE GoodyHutSubTypes SET Weight = 25 WHERE SubTypeGoodyHut = 'GOODYHUT_ADD_POP';
+UPDATE GoodyHutSubTypes SET Weight = 25 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_BUILDER';
+UPDATE GoodyHutSubTypes SET Weight = 25 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_TRADER';
+UPDATE GoodyHutSubTypes SET Weight = 25 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_SETTLER';
+
+UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_ADD_POP';
+UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_BUILDER';
+UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_TRADER';
+UPDATE GoodyHutSubTypes SET Turn = 0 WHERE SubTypeGoodyHut = 'GOODYHUT_GRANT_SETTLER';
 
 UPDATE GoodyHuts SET Weight = 10  WHERE GoodyHutType = 'GOODYHUT_CULTURE';
 UPDATE GoodyHuts SET Weight = 5  WHERE GoodyHutType = 'GOODYHUT_GOLD';

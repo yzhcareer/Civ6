@@ -70,7 +70,7 @@ function OnCityFounded(playerID, cityID)
     
     if player:IsHuman() then
         local city = CityManager.GetCity(playerID, cityID)
-        local units = {"UNIT_HELICOPTER", "UNIT_SPY", "UNIT_JET_BOMBER", "UNIT_SETTLER"}
+        local units = {"UNIT_HELICOPTER", "UNIT_SPY", "UNIT_JET_BOMBER", "UNIT_SETTLER", "UNIT_BUILDER"}
         --local units = {"UNIT_MODERN_ARMOR", "UNIT_JET_FIGHTER", "UNIT_MOBILE_SAM", "UNIT_SPY", "UNIT_HELICOPTER"}
         RestUnits(city:GetPlot())
 

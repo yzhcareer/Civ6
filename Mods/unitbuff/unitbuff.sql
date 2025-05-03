@@ -45,8 +45,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value)
 VALUES
     ("UNIT_EXTRA_XP", "ModifierId", "UNIT_EXTRA_XP_MODIFIER"),
     ("UNIT_EXTRA_XP_MODIFIER", "Amount", "1000"),
-    ("UNIT_EXTRA_MOVEMENT", "Amount", "10"),
-    ("UNIT_EXTRA_SIGHT", "Amount", "5"),
+    ("UNIT_EXTRA_MOVEMENT", "Amount", "30"),
+    ("UNIT_EXTRA_SIGHT", "Amount", "10"),
     ("UNIT_EXTRA_RANGE", "Amount", "2"),
     ("UNIT_EXTRA_ATTACK", "ModifierId", "UNIT_EXTRA_ATTACK_MODIFIER"),
     ("UNIT_EXTRA_ATTACK_MODIFIER", "Amount", "5"),
