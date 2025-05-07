@@ -19,7 +19,7 @@ function GrantStartingUnitsAndResources(playerID)
             end
             
             -- Add helicopters
-            CreateUnits("UNIT_HELICOPTER", 6)
+            --CreateUnits("UNIT_HELICOPTER", 6)
 
             -- Add settlers
             --CreateUnits("UNIT_SETTLER", 6)
@@ -28,3 +28,4 @@ function GrantStartingUnitsAndResources(playerID)
 end
 
 Events.PlayerTurnActivated.Add(GrantStartingUnitsAndResources)
+--Events.SequenceGameInitComplete.Add(GrantStartingUnitsAndResources)
