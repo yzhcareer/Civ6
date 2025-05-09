@@ -1,10 +1,16 @@
 function OnCityFounded(playerID, cityID)
     local player = Players[playerID]
     local city = CityManager.GetCity(playerID, cityID)
-    local units = {"UNIT_MODERN_ARMOR", "UNIT_JET_BOMBER", "UNIT_SETTLER", "UNIT_BUILDER", "UNIT_BUILDER", "UNIT_TRADER"}
+    local units = {"UNIT_MODERN_ARMOR", "UNIT_JET_BOMBER", "UNIT_SETTLER", "UNIT_BUILDER"}
+    local navyunits = {"UNIT_NUCLEAR_SUBMARINE"}
     local capitalunits = {"UNIT_SETTLER", "UNIT_HELICOPTER", "UNIT_HELICOPTER"}
     local majorunits = {"UNIT_MEDIC", "UNIT_PIKEMAN"}
-    local minorunits = {"UNIT_MEDIC", "UNIT_PIKEMAN", "UNIT_CATAPULT", "UNIT_MEDIC", "UNIT_PIKEMAN", "UNIT_CATAPULT", "UNIT_SETTLER", "UNIT_MEDIC", "UNIT_PIKEMAN", "UNIT_CATAPULT"}
+    local minorunits = {"UNIT_MEDIC", "UNIT_MEDIC",
+                        "UNIT_PIKEMAN", "UNIT_PIKEMAN", "UNIT_PIKEMAN",
+                        "UNIT_TREBUCHET", "UNIT_BIPLANE",
+                        "UNIT_BATTERING_RAM", "UNIT_SIEGE_TOWER", "UNIT_OBSERVATION_BALLOON",
+                        "UNIT_SETTLER", "UNIT_BUILDER"}
+    local minornavy = {"UNIT_GALLEY", "UNIT_GALLEY"}
 
     local function getHumanID()
         for i, player in ipairs(Players) do
@@ -63,6 +69,15 @@ function OnCityFounded(playerID, cityID)
         return resultPlots
     end
 
+    local function CreateNavy(playerID, unitTypes, plot)
+        adjacentWaterPlots = findWaterPlotRadius(plot, 3)
+        local count = 0
+        for plot, num in pairs(adjacentWaterPlots) do 
+            count = count + 1
+            CreateUnits(playerID, unitTypes[count], plot)
+        end 
+    end
+
 
     local function PromotUnit(pUnit)
         local unitType = pUnit:GetType()
@@ -102,30 +117,8 @@ function OnCityFounded(playerID, cityID)
             end 
         end
 
-        adjacentWaterPlots = findWaterPlotRadius(city:GetPlot(), 3)
-        local count = 0
-        for plot, num in pairs(adjacentWaterPlots) do 
-            count = count + 1
-            if count == 1 then
-                CreateUnits(playerID, "UNIT_NUCLEAR_SUBMARINE", plot)
-            end
-                --[[
-                local carrier = CreateUnits("UNIT_AIRCRAFT_CARRIER", plot)
-                local planes = {"UNIT_JET_FIGHTER", "UNIT_JET_FIGHTER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER", "UNIT_JET_BOMBER"}
-                for i, plane in ipairs(planes) do
-                    local p = CreateUnits(plane, city)
-                end
-                local nextWaterPlot = findWaterPlot(plot)
-                if nextWaterPlot ~= nil then
-                    CreateUnits("UNIT_NUCLEAR_SUBMARINE", nextWaterPlot)
-                    break
-                end
-            end
-            if count == 2 then
-                CreateUnits("UNIT_NUCLEAR_SUBMARINE", plot)
-            end
-            ]]--
-        end  
+        CreateNavy(playerID, navyunits, city)
+
     elseif player:IsMajor() then
         for i, unit in ipairs(majorunits) do
             CreateUnits(playerID, unit, city)
@@ -136,6 +129,7 @@ function OnCityFounded(playerID, cityID)
             CreateUnits(playerID, unit, city)
         end
         CreateUnits(humanID, "UNIT_SPY", city)
+        CreateNavy(playerID, minornavy, city)
     end
 end
 
