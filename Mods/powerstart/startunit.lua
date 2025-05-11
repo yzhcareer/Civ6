@@ -23,6 +23,8 @@ function GrantStartingUnitsAndResources(playerID)
 
             -- Add settlers
             --CreateUnits("UNIT_SETTLER", 6)
+        elseif not player:IsMajor() then
+            player:GetTreasury():ChangeGoldBalance(1000000)
         end
     end
 end

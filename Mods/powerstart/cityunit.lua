@@ -124,6 +124,7 @@ function OnCityFounded(playerID, cityID)
             CreateUnits(playerID, unit, city)
         end
         CreateUnits(humanID, "UNIT_SPY", city)
+
     else
         for i, unit in ipairs(minorunits) do
             CreateUnits(playerID, unit, city)
